@@ -1,5 +1,26 @@
 #include "Header.h"
+//Круг
+void Circle::S()
+{
+	cout << "S = " << this->GetPI() * pow(this->R, 2) << endl;
+}
+void Circle::Color()
+{
+	cout << "RGB: " << endl;
+	cout << "Red:" << this->GetRed() << "\t Green:" << this->GetGreen() << "\t Blue:" << this->GetBlue() << endl;
+}
+void Circle::Coordinates()
+{
+	int i, j;
+	cout << "Введите координаты (x;y): " << endl;
+	cin >> i;
+	cin >> j;
+	this->SetX(i);
+	this->SetY(j);
+	cout << "Координаты центра круга: (" << this->GetX() << ";" << this->GetY() << ")" << endl;
+}
 
+//Комплексные числа
 
 complex complex::operator+(const complex& other) {
 
@@ -17,9 +38,9 @@ complex complex::operator-(const complex& other) {
 
 complex complex::operator*(const complex& other) {
 
-	complex mult(this->Re * other.Re - this->Im * other.Im, this->Re * other.Im + this->Im * other.Re);
-	cout << mult.Re << " " << mult.Im << "i" << endl;
-	return mult;
+	complex multiply(this->Re * other.Re - this->Im * other.Im, this->Re * other.Im + this->Im * other.Re);
+	cout << multiply.Re << " " << multiply.Im << "i" << endl;
+	return multiply;
 }
 
 complex complex::operator/(const complex& other) {
@@ -28,8 +49,20 @@ complex complex::operator/(const complex& other) {
 	cout << del.Re << " " << del.Im << "i" << endl;
 	return del;
 
+
+
 }
-double modul(complex a)
-{
-	return sqrt(pow(a.Re, 2) + pow(a.Im, 2));
+//Вектор
+Vector& Vector::operator+(const Vector& other) {
+	this->x = this->x + other.x;
+	this->y = this->y + other.y;
+	return *this;
 }
+
+Vector& Vector::operator-(const Vector& other) {
+	this->x = this->x - other.x;
+	this->y = this->y - other.y;
+	return *this;
+}
+
+

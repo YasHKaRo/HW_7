@@ -30,23 +30,82 @@ public:
 	}
 
 };
-double modul(complex a);
-class calculator
+class Circle
+{
+private:
+	int x;
+	int y;
+	int R;
+
+	int Red = rand() % 256;
+	int Green = rand() % 256;
+	int Blue = rand() % 256;
+public:
+	const double PI = 3.1415926535;
+	Circle(int valueX, int valueY)
+	{
+		x = valueX;
+		y = valueY;
+		R = 10;
+	}
+	int GetRed()
+	{
+		return Red;
+	}
+	int GetGreen()
+	{
+		return Green;
+	}
+	int GetBlue()
+	{
+		return Blue;
+	}
+	double GetPI()
+	{
+		return PI;
+	}
+
+
+	void SetX(int x)
+	{
+		this->x = x;
+
+	}
+	void SetY(int valueY)
+	{
+		y = valueY;
+	}
+	int GetX()
+	{
+		return x;
+	}
+	int GetY()
+	{
+		return y;
+	}
+	void Coordinates();
+	void Color();
+	void S();
+	~Circle() {
+		cout << "Destructor\n";
+	}
+};
+class Vector
 {
 public:
-	int first, second;
-	calculator(int valueFirst, int valueSecond)
-	{
-		first = valueFirst;
-		second = valueSecond;
+	Vector(Vector& other) {
+
+		this->x = other.x;
+		this->y = other.y;
 	}
-	calculator()
-	{
-		first = 0;
-		second = 0;
+	Vector& operator+(const Vector& other);
+	Vector& operator-(const Vector& other);
+	~Vector() {
+		cout << "Destructor";
 	}
 
-
+private:
+	int x, y;
 };
 
 
